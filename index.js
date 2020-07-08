@@ -17,16 +17,12 @@ const app = new Vue({
       const runDom = document.getElementById("run");
       const result = document.getElementById("result");
       runDom.onclick = function() {
-        console.log(this.value);
         this.removeDom();
         var s = document.createElement('script');
         s.setAttribute("id", "codejs");
         s.textContent = this.value;
-        debugger
         document.body.appendChild(s);
-        CodeMirror && CodeMirror.runMode(this.value, "javascript/json", (data) => {
-          
-        });
+        result.textContent = `${eval(this.value)}`;
       }.bind(this);
     },
     removeDom() {
