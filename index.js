@@ -22,7 +22,11 @@ const app = new Vue({
         s.setAttribute("id", "codejs");
         s.textContent = this.value;
         document.body.appendChild(s);
-        result.textContent = `The answer is: ${eval(this.value)}`;
+        if (this.value) {
+          result.textContent = `The answer is: ${eval(this.value)}`;
+        } else {
+          result.textContent = '';
+        }
       }.bind(this);
     },
     removeDom() {
