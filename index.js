@@ -15,10 +15,32 @@ const app = new Vue({
     },
     addClick() {
       const runDom = document.getElementById("run");
+      const result = document.getElementById("result");
       runDom.onclick = function() {
         console.log(this.value);
-        CodeMirror && CodeMirror.runMode(this.value, "application/javascript", document.getElementById("result"));
+        this.removeDom();
+        var s = document.createElement('script');
+        s.setAttribute("id", "codejs");
+        s.textContent = this.value;
+        debugger
+        document.body.appendChild(s);
+        CodeMirror && CodeMirror.runMode(this.value, "javascript/json", (data) => {
+          
+        });
       }.bind(this);
+    },
+    removeDom() {
+      var elem = document.getElementById("codejs");
+      elem && elem.parentNode.removeChild(elem);
+    },
+    getResult(value) {
+      var lastLog;
+      console.oldLog = console.log;
+      console.log = function(str) {
+        console.oldLog(str);
+        lastLog = str;
+      }
+      console.log(value);
     },
     initCodeMirror() {
       this._editor = new CodeMirror(this.$refs.codemirror, {
