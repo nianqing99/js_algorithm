@@ -22,7 +22,7 @@ const app = new Vue({
         s.setAttribute("id", "codejs");
         s.textContent = this.value;
         document.body.appendChild(s);
-        result.textContent = `${eval(this.value)}`;
+        result.textContent = `The answer is: ${eval(this.value)}`;
       }.bind(this);
     },
     removeDom() {
@@ -81,7 +81,7 @@ const app = new Vue({
       </div>
       <div style="display: flex; align-item:center; justify-content:center;">
         <div style="flex: 1" ref="codemirror"></div>
-        <div style="flex: 1" id="result"></div>
+        <div style="flex: 1; color: #fff;" id="result"></div>
       </div>
     </div>
   `,
