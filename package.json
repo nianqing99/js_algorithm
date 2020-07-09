@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/qweqweq/js_algorithm/issues"
   },
-  "homepage": "https://github.com/qweqweq/js_algorithm#readme"
+  "homepage": "https://github.com/qweqweq/js_algorithm#readme",
+  "dependencies": {
+    "codemirror": "^5.55.0"
+  }
 }

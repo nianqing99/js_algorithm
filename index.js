@@ -17,16 +17,16 @@ const app = new Vue({
       const runDom = document.getElementById("run");
       const result = document.getElementById("result");
       runDom.onclick = function() {
-        console.log(this.value);
         this.removeDom();
         var s = document.createElement('script');
         s.setAttribute("id", "codejs");
         s.textContent = this.value;
-        debugger
         document.body.appendChild(s);
-        CodeMirror && CodeMirror.runMode(this.value, "javascript/json", (data) => {
-          
-        });
+        if (this.value) {
+          result.textContent = `The answer is: ${eval(this.value)}`;
+        } else {
+          result.textContent = '';
+        }
       }.bind(this);
     },
     removeDom() {
@@ -85,7 +85,7 @@ const app = new Vue({
       </div>
       <div style="display: flex; align-item:center; justify-content:center;">
         <div style="flex: 1" ref="codemirror"></div>
-        <div style="flex: 1" id="result"></div>
+        <div style="flex: 1; color: #fff;" id="result"></div>
       </div>
     </div>
   `,
