@@ -1,5 +1,5 @@
 # js_algorithm
-####  算法集合，内功修炼者
+####  算法集合，内功修炼
 
 - common  常规算法
 - leet code 刷题

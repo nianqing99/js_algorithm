@@ -10,7 +10,6 @@
  */
 let arr = [6, 5, 4, 3, 2, 1];
 function fast(data) {
-  if (arr.length <= 1) return data;
   let right = [],
     left = [],
     keys = data.shift();
